@@ -80,6 +80,7 @@ App({
 
   getKey: function() {
     var that = this;
+    //未登陆过的用户，首先调用getKey接口，拿到用户的key值
     NetworkService.call("getKey", null,
       function(res) {
         wx.redirectTo({

@@ -15,6 +15,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    //通过options拿到上一个页面传过来的key
     var that = this;
     that.setData({
       url: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxc2bed302312c4ac7&redirect_uri=http%3a%2f%2fwww.i-lab.sh.cn%2filabservice.cloud%2fyskj%2fapi%2fv2%2funsecure%2fwechat%2fyskj%2fcode&response_type=code&scope=snsapi_base&state=' + options.key,
@@ -23,6 +24,7 @@ Page({
   },
 
   onbindload: function(res) {
+    //调用登录方法
     this.logIn(this.data.key)
   },
   //根据openid获取token
