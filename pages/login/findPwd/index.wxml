@@ -1,0 +1,33 @@
+<view class='container'>
+  <view style="width:100%;position:fixed;top:0rpx;background-color: #3400CE;">
+    <nav-header title="忘记密码" showBack="{{true}}" />
+  </view>
+  <!--上面部分 -->
+  <view class="main-container" style="margin-top:{{marginHeight+30}}rpx;">
+
+    <view class="top-container">
+      <image src="/images/user/phone.png" class="left-img" mode="scaleToFill" />
+      <text class="top-text">手机号</text>
+    </view>
+
+    <view class="input-container">
+      <input bindinput="bindPoneInput" value="{{phone}}" placeholder="请输入手机号" class="input-send" />
+    </view>
+
+    <view class="top-container">
+      <image src="/images/login/code.png" class="left-img" mode="scaleToFill" />
+      <text class="top-text">验证码</text>
+    </view>
+    <view class="input-container" style="display:flex;flex-direction:row;">
+      <input bindinput="bindAccountInput" value="{{userName}}" placeholder="请输入验证码" class="input-send" />
+      <view class="msg-container" bindtap="onTapMsg">
+        <text class="msg-text">发送验证码</text>
+      </view>
+    </view>
+
+
+    <view class='bottom-btn' bindtap="handleUser" data-type="chongzhi">
+      <view class='text-btn'>确定</view>
+    </view>
+  </view>
+</view>

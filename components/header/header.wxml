@@ -1,0 +1,14 @@
+<block class="container">
+  <view class="statusbar" style="height:{{statusbarHieght}}rpx"/>
+  <view class="content-container">
+    <view style="display:flex;flex:1;">
+      <view class="back-container" hidden="{{showBack !=true}}"  bindtap="backAction">
+        <image src="../../images/common/back.png" style="width:20rpx;height:30rpx;" />
+      </view>
+    </view>
+    <view class="title-container">
+      <text style="font-size:34rpx;color:white;font-weight:bold;">{{title}}</text>
+    </view>
+    <view style="display:flex;flex:1;"> </view>
+  </view>
+</block>

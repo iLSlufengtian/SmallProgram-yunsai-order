@@ -1,0 +1,39 @@
+<view class="container">
+  <!--------------------------------------manager角色----------------------------------------->
+  <view class="content" wx:if="{{type=='manager'&&tabsManager[0].checked}}">
+    <home id="home" />
+  </view>
+
+  <!-- orderRecordManger 预约管理员的简写 -->
+  <view class="content" wx:if="{{type=='manager'&&tabsManager[1].checked}}">
+    <ordRecordM/>
+  </view>
+
+  <view class="content" wx:if="{{type=='manager'&&tabsManager[2].checked}}">
+    <mine/>
+  </view>
+
+  <!--------------------------------------预约用户角色----------------------------------------->
+  <view class="content" wx:if="{{type=='normal'&&tabsNormal[0].checked}}">
+    <home id="home" />
+  </view>
+
+  <!-- orderRecordConsumer 预约用户的简写 -->
+  <view class="content" wx:if="{{type=='normal'&&tabsNormal[1].checked}}">
+    <ordRecordC/>
+  </view>
+
+  <view class="content" wx:if="{{type=='normal'&&tabsNormal[2].checked}}">
+    <mine/>
+  </view>
+
+  <!-- 底部tabBar -->
+  <view class="bottom-tab">
+    <block wx:for="{{type=='manager'?tabsManager:tabsNormal}}" wx:key="" wx:for-index="idx" data-item="item">
+      <view bindtap="bindChange" class="tab-container" data-idx="{{idx}}">
+        <image src="{{item.checked ? item.selectedIcon : item.icon}}" class="left-img" mode="aspectFit" />
+        <view style="color:{{item.checked?'#3400CE':'#999'}};font-size: 20rpx;">{{item.text}}</view>
+      </view>
+    </block>
+  </view>
+</view>

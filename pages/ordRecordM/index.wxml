@@ -1,0 +1,121 @@
+<view class="container">
+
+<view style="width:100%;position:fixed;top:0;background-color:#3400CE">
+    <nav-header title="预约记录" showBack="{{false}}" />
+  </view>
+
+  <custom-scroll pulldownDistance="100" refreshPulldownText="再往下拉试试" refreshUndoText="松开试试" refreshLoadingText="努力刷新中~" loadmoreLoadingText="正在从库里捞数据" loadmoreAllloadedText="取之不尽,用之完矣" bind:_refresh="refresh" id="manageren" >
+
+  <view class="remind">
+      <view style="display:flex;flex-direction:row;justify-content:center;height:60rpx;align-items:center">
+        <image src="/images/order/remind.png" class="img-remind" />
+        <text class="text-view">开始前30分钟内将无法取消</text>
+      </view>
+    </view>
+
+    <!-- 循环遍历 -->
+    <view class="tab-container">
+      <view class="segmentedControl">
+        <block wx:for="{{radioValues}}" wx:key="" wx:for-index="idx" data-item="item">
+          <text style="background-color:{{item.selected?'#3400CE':'#FFFFFF'}};color:{{item.selected?'#FFFFFF':'#3400CE'}};border-top-left-radius:{{idx==0?8:0}}rpx;border-bottom-left-radius:{{idx==0?8:0}}rpx;border-top-right-radius:{{idx==2?8:0}}rpx;border-bottom-right-radius:{{idx==2?8:0}}rpx; border-right:{{(idx==0 || idx==1 )?0:1}}px solid #3400CE;" data-index="{{idx}}" bindtap="indexChanged">{{item.value}}</text>
+        </block>
+      </view>
+    </view>
+
+    <view class='finish' wx:if='{{radioValues[0].selected===true}}'>
+      <block wx:for="{{finishedDatas}}" wx:key="" wx:for-index="index" data-item="item">
+        <template is="itemone" data="{{item:item,idx:index,type:'0'}}" />
+      </block>
+      <view class="empty-container" wx:if='{{finishedDatas.length==0 && dataLoaded}}'>
+        <image src="/images/home/empty.png" class="empty-img" />
+        <text class="empty-text">暂无数据</text>
+      </view>
+    </view>
+
+    <view class='finish' wx:if='{{radioValues[1].selected===true}}'>
+      <block wx:for="{{processingDatas}}" wx:key="" wx:for-index="index" data-item="item">
+        <template is="itemtwo" data="{{item:item,idx:index,type:'3'}}" />
+      </block>
+      <view class="empty-container" wx:if='{{processingDatas.length==0}}'>
+        <image src="/images/home/empty.png" class="empty-img" />
+        <text class="empty-text">暂无数据</text>
+      </view>
+    </view>
+
+    <view class='finish' wx:if='{{radioValues[2].selected===true}}'>
+      <block wx:for="{{openDatas}}" wx:key="" wx:for-index="index" data-item="item">
+        <template is="itemthree" data="{{item:item,idx:index,type:'2'}}" />
+      </block>
+      <view class="empty-container" wx:if='{{openDatas.length==0}}'>
+        <image src="/images/home/empty.png" class="empty-img" />
+        <text class="empty-text">暂无数据</text>
+      </view>
+    </view>
+
+  </custom-scroll>
+  
+</view>
+
+<!--  下面modal模块 -->
+<template name="itemone">
+  <view class="cell-con"  data-taskid="{{item.leaseId}}" data-type="{{type}}">
+    <view class="top-title">
+      <text style="font-size:32rpx;color:#3E3E3E;font-weight:500" class="title-content">{{item.context.companyName}}</text>
+      <text style='font-size:24rpx;color:#BCBCBC;'>{{item.gmtCreate}}</text>
+    </view>
+    <view class="bottom-container">
+        <text >预约人：{{item.name}}</text>
+        <text >预约房间：{{item.context.room}}</text>
+        <text >预定时间：{{item.startTime}}-{{item.finishTime}}</text>
+    </view>
+    <view style="font-size:26rpx;color:#3400CE;width:100%;height:63rpx;padding-top:5rpx;padding-bottom:5rpx;" >
+        <text style="display:inline-block;width:50%;height:100%;line-height:63rpx;text-align:center;border-right:1rpx solid #E8E8E8" bindtap='refuseApply' data-agreeapplyid="{{item.leaseId}}">拒绝申请</text>
+        <text style="display:inline-block;width:49%;height:100%;line-height:63rpx;text-align:center;" bindtap='clickagreeApply'  data-agreeapplyid="{{item.leaseId}}">同意申请</text>
+      </view>
+  </view>
+</template>
+
+<!--  下面modal模块 -->
+<template name="itemtwo">
+  <view class="cell-con" style="height:248rpx"  data-taskid="{{item.id}}" data-type="{{type}}">
+  <view class="top-title">
+    <text style="font-size:32rpx;color:#3E3E3E;font-weight:500;"class="title-content">{{item.context.companyName}}</text>
+      <text wx:if="{{item.status==1}}" style='color:#34BC8D;font-size:24rpx;'>已通过</text>
+      <text wx:elif="{{item.status==2}}" style='color:#FF5858;font-size:24rpx;'>未通过</text>
+  </view>
+    
+    <view class="bottom-container" style="border-bottom:0">
+         <text style='margin-bottom:10rpx;'>预约人：{{item.name}}</text>
+        <text style='margin-bottom:10rpx;'>预约房间：{{item.context.room}}</text>
+        <text style='margin-bottom:10rpx;'>预定时间：{{item.startTime}}-{{item.finishTime}}</text>
+    </view>
+  </view>
+</template>
+
+<!--  下面modal模块 -->
+<template name="itemthree">
+  <view class="cell-con" style='height:240rpx'  data-taskid="{{item.id}}" data-type="{{type}}">
+    <view class="top-title">
+      <text style="font-size:32rpx;color:#3E3E3E;font-weight:500">{{item.context.room}}</text>
+    </view>
+    <view class="bottom-container" style='border-top:0;padding-top:0;margin-top:-6rpx'>
+        <text>预定时间：{{item.startTime}}-{{item.finishTime}}</text>
+        <text>会议主题：{{item.context.title}}</text>
+    </view>
+    <view class="cancel" bindtap="clickcancelOrdered" data-leaseid="{{item.leaseId}}"   data-deviceid="{{item.deviceId}}"  data-cancelable="{{item.cancelAble}}">
+        <text class="calcel-text"  style="color:{{item.cancelAble?'#3400CE':'#8E8E8E'}}">取消预订</text>
+    </view>
+  </view>
+</template>
+<!-- 取消预订弹窗 -->
+<modal hidden="{{hiddenmodalput}}" title="您确定取消预订吗?" confirm-text="确定" cancel-text="暂不" bindcancel="onTapCancel" bindconfirm="onTapConfirm"  >
+
+</modal>
+<!-- 拒绝申请 -->
+<modal hidden="{{hiddenmodalrefuse}}" title="您确定拒绝吗?" confirm-text="确定" cancel-text="暂不" bindcancel="onTapCancelrefuse" bindconfirm="onTapConfirmrefuse"  >
+    <textarea bindinput="bindDesInput" value="{{description}}" placeholder="请输入拒绝原因" class="input-refuse" maxlength='50' />
+</modal>
+<!-- 同意申请 -->
+<modal hidden="{{hiddenmodalagree}}" title="您确定同意吗?" confirm-text="确定" cancel-text="暂不" bindcancel="onTapCancelagree" bindconfirm="onTapConfirmagree"  >
+</modal>
+

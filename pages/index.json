@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "nav-header": "../../components/header/header",
+    "home": "./home/index",
+    "mine": "./mine/index",
+    "ordRecordM": "./ordRecordM/index",
+    "ordRecordC": "./ordRecordC/index"
+   
+  }
+}

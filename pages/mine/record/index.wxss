@@ -1,0 +1,97 @@
+page {
+  min-height: 100%;
+  background-color: #F0F4F7;
+}
+
+.container {
+  display: flex;
+}
+
+.items {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  margin-left: 4%;
+  margin-right: 4%;
+}
+
+.img-left {
+  width: 42rpx;
+  height: 42rpx;
+  /* margin-top: 50rpx; */
+  margin-left: 30rpx;
+  margin-right: 10rpx;
+}
+
+.text-view {
+  font-size: 30rpx;
+  color: #3E3E3E
+}
+
+.input-email{
+  background-color: white;
+  width: 650rpx;
+  margin-left: 30rpx;
+  margin-top: 20rpx;
+  height: 70rpx;
+  border-radius: 4rpx;
+  line-height: 70rpx;
+  font-size: 30rpx;
+  color: #3E3E3E;
+  padding-left: 40rpx;
+}
+
+picker{
+  background-color: white;
+  width: 92%;
+  margin-left: 4%;
+  margin-top: 20rpx;
+  height: 70rpx;
+  border-radius: 4rpx;
+}
+
+.sTime {
+  line-height: 70rpx;
+  font-size: 22rpx;
+  color: #8e8e8e;
+  margin-left: 40rpx;
+}
+
+.holder-input {
+  font-size: 22rpx;
+  color: #8e8e8e;
+}
+
+.rem {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 30rpx;
+  margin-top: 15rpx;
+}
+
+.star {
+  font-size:20rpx;
+  color:#8e8e8e;
+  margin-right: 10rpx;
+  margin-top:2rpx;
+}
+
+.remind {
+  font-size: 20rpx;
+  color: #8e8e8e;
+}
+
+.apply {
+  display: flex;
+  width: 100%;
+}
+
+.img-apply {
+  width: 94%;
+  height: 100rpx;
+  margin-top: 75rpx;
+  margin-left: 3%;
+}
+

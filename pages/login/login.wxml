@@ -1,0 +1,22 @@
+<view class="container">
+  <view class="form-box">
+    <view class="title-container">
+      <text class="title-text">会议室预约系统</text>
+    </view>
+
+    <view class="row-wrap" style="margin-top:100rpx">
+      <text style="font-size:34rpx;color:#3E3E3E;line-height:48rpx;padding-top:20rpx;width:128rpx">手机号</text>
+      <input class="input-phone" placeholder-class="holder-input" placeholder="请输入手机号" type="number" bindinput="bindPhoneInput" value='{{phone}}' maxlength='11'/>
+    </view>
+
+    <view class="row-wrap">
+      <text style="font-size:34rpx;color: #333;line-height:48rpx;padding-top:20rpx;width:112rpx">验证码</text>
+      <input class="input-code" placeholder-class="holder-input" placeholder="请输入验证码"  bindinput="bindCodeInput" value='{{code}}' maxlength='6'/>
+      <button class="send" disabled='{{disabled}}' bindtap="getCode">{{btnText}}</button>
+    </view>
+
+    <view class="button-wrap" bindtap="verify">
+      <view class='text-btn'>登录</view>
+    </view>
+  </view>
+</view>

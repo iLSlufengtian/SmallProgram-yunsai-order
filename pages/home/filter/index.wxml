@@ -1,0 +1,35 @@
+<!--pages/home/filter/index.wxml-->
+<view class="container">
+  <view style="width:100%;position:fixed;top:0;background-color:#3400CE;">
+    <nav-header title="房间查询结果" showBack="{{true}}" />
+  </view>
+
+  <view class="list-container" style="margin-top:{{marginHeight}}rpx">
+    <view class="searchTime" wx:if="{{searchTime}}">
+      <text>{{searchTime}}</text>
+    </view>
+
+    <view class="list-container-filter">
+      <view wx:for="{{list}}" wx:key="{{index}}">
+        <template is="room" data="{{item:item,idx:index}}" />
+      </view>
+    </view>
+  </view>
+</view>
+
+<template name="room">
+  <view class="item-container" bindtap='onTapRoom' data-roomid="{{item.id}}" data-name="{{item.name}}" data-type="{{item.model}}">
+    <view class="img-wrapper">
+      <view class="image-room">
+        <image src="{{item.model== 'small_room'?'../../../images/home/smallroom.png':'../../../images/home/bigroom.png'}}" class="room-img " />
+      </view>
+      <view class="name-wrapper">
+        <text class='name-text'>{{item.name}}</text>
+      </view>
+    </view>
+    <view class='bellow-wrapper'>
+      <text class="bellow-text">{{item.location}}</text>
+      <text class="bellow-text">{{item.model=='small_room'?'小':'大'}}</text>
+    </view>
+  </view>
+</template>

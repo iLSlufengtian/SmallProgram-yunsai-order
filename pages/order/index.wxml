@@ -1,0 +1,88 @@
+<view class="container">
+  <view style="width:100%;position:fixed;top:0;background-color:#3400CE">
+    <nav-header title="预约" showBack="{{true}}" />
+  </view>
+
+  <view style="width:100%;margin-top:{{marginHeight}}rpx;display:flex;flex-direction:column;align-items: center;">
+
+    <view class="title_wrapper" style="display:flex;margin-top:20rpx">
+      <image src="/images/order/bar.png" style='width: 8rpx;height: 33rpx;margin-right: 12rpx;margin-top:6rpx;' />
+      <text class="title-text" style='font-size:36rpx;font-weight:500'>{{roomName}}</text>
+    </view>
+
+    <view class="title_wrapper">
+      <image src="/images/order/topic.png" class="img-left" />
+      <text class="title-text">会议主题</text>
+    </view>
+    <view style="width:92%;margin-top: 20rpx;">
+      <input class='themeInput' type='text' auto-focus="false" placeholder='请输入参会主题' value='{{topic}}' bindinput="bindTopicInput"></input>
+    </view>
+    <view class="title_wrapper">
+      <image src="/images/order/meeting.png" class="img-left" />
+      <text class="title-text">会议时间  (06: 00 - 23: 59)</text>
+    </view>
+    <view style="width:92%;margin-top: 20rpx;"> 
+      <input  class='themeInput' type='text' disabled="true" placeholder='请选择会议时间' value='{{timeStr}}' bindtap="showSlectModal"></input>
+    </view>
+    <view class='bottom-btn' bindtap="doOrderRoom">
+      <view class='text-btn'>提交预约</view>
+    </view>
+
+    <view class="cover_screen" bindtap="hideDelModal" wx:if="{{showModal}}"></view>
+    <view animation="{{animationData}}" class="modal" wx:if="{{showModal}}">
+      <view wx:if="{{showTimeSlot}}" class="content-container" style="height:{{windowHeight*0.83}}rpx">
+        <view class="modal_title">
+          <text style="font-size: 30rpx;color: #3E3E3E;font-weight:500;">{{roomName}}</text>
+          <view class="img-con"  bindtap="closeTimeSelect">
+            <image src="/images/common/close.png" style="width:27rpx;height: 27rpx;" mode="aspectFit" />
+          </view>
+        </view>
+
+        <view class="day_wrapper">
+          <view class="previous" style="margin-left:20rpx;background-color:{{preGray?'#efefef':'white'}}" bindtap='onTapPre'>
+            <text style="font-size:30rpx;color:#666;">前一天 </text>
+          </view>
+          <view class="middle" bindtap='showCalendar'>
+            <!-- <text style="font-size:20rpx;color:#666;">周四 </text> -->
+            <text style="font-size:30rpx;color:#666;">{{currentDay}}</text>
+            <image src="/images/common/shit.png" style="width:40rpx;height:24rpx;" mode="aspectFit" />
+          </view>
+          <view class="previous" style="margin-right:20rpx;background-color:{{afterGray?'#efefef':'white'}}" bindtap='onTapAft'>
+            <text style="font-size:30rpx;color:#666;">后一天 </text>
+          </view>
+        </view>
+        <view class="sekuai">
+          <image src="/images/order/grayLogo.png" style="width:25rpx;height:24rpx;" mode="aspectFit" />
+          <text style="font-size:20rpx;color:#8E8E8E;">已预约 </text>
+
+          <image src="/images/order/yellowLogo.png" style="width:25rpx;height:24rpx;margin-left:20rpx;" mode="aspectFit" />
+          <text style="font-size:20rpx;color:#8E8E8E;">正在审核 </text>
+
+          <image src="/images/order/greenLogo.png" style="width:25rpx;height:24rpx;margin-left:20rpx;" mode="aspectFit" />
+          <text style="font-size:20rpx;color:#8E8E8E;">我的预约 </text>
+        </view>
+
+        <scroll-view scroll-y style="height:728rpx;flex:1;">
+          <view wx:for="{{timeSlot}}" wx:key="{{index}}" data-item="item">
+            <view class="item-wrapper" bindtap="onTapTimes" data-index="{{index}}">
+              <image src="{{item.imageSource}}" class="itemicon" mode="aspectFit"></image>
+              <view class="right-wrapper">
+                <text style="font-size:30rpx;color:#3E3E3E;">{{item.timeList}}</text>
+                <text wx:if="{{roleType =='manager'}}" style="font-size:30rpx;color:#3E3E3E;margin-right:30rpx;">{{item.company}}</text>
+              </view>
+            </view>
+          </view>
+        </scroll-view>
+
+
+        <view class='bottom-btn' style="margin-bottom:15rpx;margin-top:10rpx;">
+          <view class='text-btn' bindtap="confirmTimeSelect">确定</view>
+        </view>
+      </view>
+
+      <view wx:if="{{showCalendar}}" class="content-container" style="height:{{windowHeight*0.83}}rpx">
+        <calendar width="{{windowWidth}}" height="{{windowHeight*0.83}}" bind:myevent="hideCalendar" date="{{currentDay}}" roomtype="{{roomType}}" />
+      </view>
+    </view>
+  </view>
+</view>

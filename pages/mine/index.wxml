@@ -1,0 +1,75 @@
+<view class="container">
+  <view style="width:100%;position:fixed;top:0;background-color: #3400CE;height:380rpx;">
+    <nav-header title="我的" showBack="{{false}}" />
+    <view class="wodeLogo">
+      <image src="/images/mine/wodeLogo.png" style='width:294rpx;height:190rpx;'/>
+    </view>
+
+  </view>
+  <view style="width:100%;margin-top:{{marginHeight}}rpx;display:flex;flex-direction:column;align-items: center;z-index:2;">
+    <!-- <view class="head-container">
+      <image src="/images/mine/head.png" class="img-head" bindtap='onTapHeadImg' mode="scaleToFill" />
+      <text style="font-size:34rpx;color:#3E3E3E;margin-top:30rpx;">{{userInfo?userInfo.name:""}}</text>
+    </view> -->
+    <!-- 上半部分 -->
+    <view class="card-container">
+      <view class="card-item">
+        <image src="/images/mine/name1.png" class="img-left" />
+        <view class="right-container">
+          <text class="item-text">用户账号</text>
+          <text class="right-text">{{userInfo?userInfo.username:""}}</text>
+        </view>
+      </view>
+      <view style="width:92%;height:1rpx;border-bottom: 1rpx solid #EBEBEB;" />
+
+      <view class="card-item">
+        <image src="/images/mine/identity.png" class="img-left" />
+        <view class="right-container">
+          <text class="item-text">身份类型</text>
+          <text wx:if="{{userInfo.roleName ==='USER_BASIC_VIEW'}}" class="right-text">入孵成员</text>
+          <text wx:if="{{userInfo.roleName =='AUDIT'}}" class="right-text">管理团队</text>
+          <text wx:if="{{userInfo.roleName =='INTERNAL_TEAM'}}" class="right-text">内部团队</text>
+          <!-- <text class="right-text">{{userInfo?userInfo.roleName:""}}</text> -->
+        </view>
+      </view>
+
+      <view style="width:92%;height:1rpx;border-bottom: 1rpx solid #EBEBEB;" />
+      <view class="card-item">
+        <image src="/images/mine/company.png" class="img-left" />
+        <view class="right-container">
+          <text class="item-text">所属团队</text>
+          <text class="right-text">{{userInfo?userInfo.companyName:""}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 下半部分 -->
+    <view wx:if="{{userInfo.roleName =='AUDIT'}}" style="width: 92%;background-color: white; display:flex;flex-direction:column;align-items: center;margin-top:30rpx;border-radius:10rpx;box-shadow: 0 3rpx 0 3rpx #e8e8e8;-webkit-box-shadow: 0 3rpx 0 3rpx #e8e8e8;">
+      <view class="card-item">
+        <image src="/images/mine/record.png" class="img-left" />
+        <view class="right-container" bindtap="onTapRecord">
+          <text class="item-text">导出预约记录</text>
+          <image src="/images/common/arrow.png" class="img-right" />
+        </view>
+      </view>
+    </view>
+
+    <view style="width: 92%;background-color: white; display:flex;flex-direction:column;align-items: center;margin-top:30rpx;border-radius:10rpx;box-shadow: 0 3rpx 0 3rpx #e8e8e8;-webkit-box-shadow: 0 3rpx 0 3rpx #e8e8e8;">
+      <view class="card-item">
+        <image src="/images/mine/aboutus.png" class="img-left" />
+        <view class="right-container" bindtap="onTapAbout">
+          <text class="item-text">关于我们</text>
+          <image src="/images/common/arrow.png" class="img-right" />
+        </view>
+      </view>
+      <!-- <view style="width:92%;height:1rpx;border-bottom: 1rpx solid #EBEBEB;" />
+      <view class="card-item">
+        <image src="/images/mine/logout.png" class="img-left" />
+        <view class="right-container" bindtap="onTapLogout">
+          <text class="item-text">退出登录</text>
+          <image src="/images/common/arrow.png" class="img-right" />
+        </view>
+      </view> -->
+    </view>
+  </view>
+</view>

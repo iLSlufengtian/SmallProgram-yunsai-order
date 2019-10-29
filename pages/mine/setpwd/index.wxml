@@ -1,0 +1,27 @@
+<view class='container'>
+  <view style="width:100%;position:fixed;top:0;background-color: #3400CE;">
+    <nav-header title="修改密码" showBack="{{true}}" />
+  </view>
+  <!--上面部分 -->
+  <view class="main-container" style="margin-top:{{marginHeight+30}}rpx;">
+
+    <view class="top-container">
+      <text class="top-text">原密码</text>
+    </view>
+    <input bindinput="bindOldPwdInput" placeholder="请输入原密码" class="input-send" />
+
+    <view class="top-container">
+      <text class="top-text">新密码</text>
+    </view>
+    <input bindinput="bindNewPwdInput" placeholder="请输入新密码" class="input-send" />
+
+    <view class="top-container">
+      <text class="top-text">确认新密码</text>
+    </view>
+    <input bindinput="bindNewPwdAginInput" placeholder="请输入新密码" class="input-send" />
+
+    <view class='bottom-btn' bindtap="modifyPwd" data-type="chongzhi">
+      <view class='text-btn'>确定</view>
+    </view>
+  </view>
+</view>

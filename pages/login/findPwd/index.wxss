@@ -1,0 +1,85 @@
+page {
+  min-height: 100%;
+  background-color: #f4f5f7;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.main-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.top-container {
+  width: 85%;
+  height: 35rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 80rpx;
+}
+
+.left-img {
+  width: 26rpx;
+  height: 30rpx;
+}
+
+.top-text {
+  font-size: 30rpx;
+  color: #333;
+  margin-left: 20rpx;
+}
+
+.input-container {
+  height: 72rpx;
+  width: 85%;
+  margin-top: 20rpx;
+}
+
+.input-send {
+  flex: 1;
+  height: 72rpx;
+  background-color: white;
+  border-radius: 7rpx;
+  padding-left: 20rpx;
+  font-size: 30rpx;
+  color: #333;
+  border: 1rpx solid #efefef;
+}
+
+.msg-container {
+  height: 72rpx;
+  width: 200rpx;
+  background-color: #3275fd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10rpx;
+  margin-left: 30rpx;
+}
+
+.msg-text {
+  font-size: 30rpx;
+  color: white;
+}
+
+.bottom-btn {
+  width: 85%;
+  height: 80rpx;
+  margin-top: 80rpx;
+  background-color: #3A70F8;
+  border-radius: 7rpx;
+}
+
+.text-btn {
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 80rpx;
+  color: white;
+}

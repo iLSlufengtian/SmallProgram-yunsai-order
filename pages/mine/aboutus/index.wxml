@@ -1,0 +1,25 @@
+<view class="container">
+  <view style="width:100%;position:fixed;top:0;background-color: #3400CE;">
+    <nav-header title="关于我们" showBack="{{true}}" />
+  </view>
+
+  <view style="width:100%;margin-top:96rpx;display:flex;flex-direction:column;align-items: center;">
+
+    <view class="logo-container">
+      <image src="/images/mine/logo.png" class="img-head" mode="scaleToFill" />
+    </view>
+
+    <view class="about-us">
+      <text>云赛空间创业孵化器，由徐汇区政府、</text>
+      <text>上海仪电集团、微软（中国）三方合作成立，</text>
+      <text>汇聚上海仪电集团多方优势，</text>
+      <text>依托微软全球生态链技术创新，</text>
+      <text>整合政府科创资源，</text>
+      <text>以人才汇聚的社区为优势，</text>
+      <text>为促进科创人才交流，</text>
+      <text>助力创业团队从第一步迈向持续成功的下一步。</text>
+    </view>
+    <text style='font-size:26rpx;color:#8E8E8E'>版本号：1.0</text>
+  </view>
+
+</view>

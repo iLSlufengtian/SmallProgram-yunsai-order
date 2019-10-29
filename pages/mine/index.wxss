@@ -1,0 +1,91 @@
+page {
+  min-height: 100%;
+  background-color: #F0F4F7;
+}
+
+.container {
+  display: flex;
+}
+
+.img-top {
+  width: 100%;
+  height: 150rpx;
+  z-index: 1;
+}
+
+.head-container {
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  margin-top: 40rpx;
+  align-items: center;
+  margin-bottom: 60rpx;
+}
+
+.img-head {
+  width: 167rpx;
+  height: 167rpx;
+}
+
+.wodeLogo {
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-container {
+  width: 92%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10rpx;
+  box-shadow: 0 3rpx 0 3rpx #e8e8e8;
+  -webkit-box-shadow: 0 3rpx 0 3rpx #e8e8e8;
+  margin-top: 144rpx;
+}
+
+.card-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 104rpx;
+  width: 100%;
+  margin-left: 4%;
+  margin-right: 4%;
+  /* border-bottom: 1rpx solid #EBEBEB; */
+}
+
+.img-left {
+  width: 29rpx;
+  height: 31rpx;
+  margin-left: 30rpx;
+  margin-right: 20rpx;
+}
+
+.right-container {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.item-text {
+  font-size: 28rpx;
+  color: #333333;
+}
+
+.right-text {
+  font-size: 28rpx;
+  color: #999;
+  margin-right: 30rpx;
+}
+
+.img-right {
+  width: 35rpx;
+  height: 35rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}

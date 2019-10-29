@@ -1,0 +1,60 @@
+<view class="container">
+  <view style="width:100%;position:fixed;top:0;background-color: #3400CE;">
+    <nav-header title="房间列表" showBack="{{false}}" />
+  </view>
+  <view class="list-container" style="margin-top:{{marginHeight}}rpx">
+    <view wx:for="{{list}}" wx:key="{{index}}">
+      <template is="room" data="{{item:item,idx:index}}" />
+    </view>
+  </view>
+  <image src="../../images/home/filter.png" class="filter-img" bindtap="onTapFilterImg" />
+
+  <modal hidden="{{hiddenmodalput}}" title="{{modalTitle}}" confirm-text="确定" cancel-text="取消" bindcancel="onTapCancel" bindconfirm="onTapConfirm">
+    <view style="width:100%;height:1rpx;border-bottom: 1rpx solid #EBEBEB;" />
+    <view class="filter-area">
+      <view class="filter-box">
+        <text class='filter-title'>选择日期</text>
+        <view class="filter">
+          <picker mode="date" value="{{taskDate}}" start="2019-03-27" end="2027-09-01" style="flex:1;" bindchange="bindDateChange">
+            <view class="time">{{taskDate?taskDate:currentDate}}</view>
+          </picker>
+        </view>
+      </view>
+      <view class="filter-box">
+        <text class='filter-title'>开始时间</text>
+        <view class="filter">
+          <picker mode="time" value="{{taskStartTime}}" start="06:00" end="23:59" style="flex:1;" bindchange="bindTimeChange1">
+            <view class="time">{{taskStartTime?taskStartTime:'06:00'}}</view>
+          </picker>
+        </view>
+      </view>
+      <view class="filter-box">
+        <text class='filter-title'>结束时间</text>
+        <view class="filter">
+          <picker mode="time" value="{{taskEndTime}}" start="{{taskStartTime}}" end="23:59" style="flex:1;" bindchange="bindTimeChange2">
+            <view class="time">{{taskEndTime?taskEndTime:'23:59'}}</view>
+          </picker>
+        </view>
+      </view>
+    </view>
+  </modal>
+</view>
+
+<!--  下面是一个模块 -->
+<template name="room">
+  <view class="item-container" bindtap='onTapRoom' data-roomid="{{item.id}}" data-name="{{item.name}}"  data-type="{{item.model}}" >
+    <view class="img-wrapper">
+      <view class="image-room">
+        <image src="{{item.model== 'small_room'?'../../images/home/smallroom.png':'../../images/home/bigroom.png'}}" class="room-img " />
+      </view>
+      <view class="name-wrapper">
+        <text class='name-text'>{{item.name}}</text>
+      </view>
+    </view>
+    
+    <view class='bellow-wrapper'>
+      <text class="bellow-text">{{item.location}}</text>
+      <text class="bellow-text">{{item.model=='small_room'?'小':'大'}}</text>
+    </view>
+  </view>
+</template>

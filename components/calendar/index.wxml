@@ -1,0 +1,33 @@
+<view class="container" style="width:{{width}}px;height:{{height}}rpx;">
+  <view class="title-wrapper" bindtap='onTapBack'>
+    <image src="../../images/order/left.png" class="back-img" mode="aspectFit" />
+    <text style="font-size:30rpx;color:#3E3E3E;font-weight:500;">时刻选择</text>
+  </view>
+  <!-- 头部的星期 -->
+  <view class="week-wrapper">
+    <view class="date-week" style="width:{{width/7-10}}px;height:20px" wx:for="{{weekStr}}" wx:key="{{index}}">
+      <text wx:if="{{item !=='日' && item !=='六'}}" style="font-size: 30rpx;">{{item}}</text>
+      <text wx:if="{{item ==='日' || item ==='六'}}" class="week">{{item}}</text>
+    </view>
+  </view>
+  <scroll-view scroll-y="true" style="height:{{height-150}}rpx;width:100%; background-color:white;padding:0rpx;margin:0rpx;">
+    <view wx:for="{{dateList}}" wx:key="{{index}}" wx:for-item="dateItem" class="item-wrapper">
+      <!--头部月份-->
+      <view style="text-align: center;font-size:35rpx;">{{dateItem.year}}年{{dateItem.month}}月</view>
+      <!-- 底下天数 -->
+      <view class="days-wrapper bac{{dateItem.month}} " >
+      
+      
+      <view class="days-wrapper" >
+      <!-- <image src="../../images/order/six.png" class='in-image'   /> -->
+        <view class="date-day" style="width:{{width/7-10}}px;height:{{width/7}}px;background-color:{{item.selected?'#3a70f8':''}}" data-year="{{dateItem.year}}" data-month="{{dateItem.month}}" data-day="{{item.day}}" bindtap="onPressDate" wx:for="{{dateItem.days}}" wx:key="{{index}}">
+          <view class='item-days'>
+            <text class="{{item.gray?'before':'after'}}" >{{item.day>0?(item.daytext?item.daytext:item.day):''}}</text>
+            <!-- <text style='font-size:30rpx;' wx:if="{{item.inday}}">确定</text> -->
+          </view>
+        </view>
+      </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

@@ -1,0 +1,16 @@
+<view class="container">
+  <view style="width:100%;position:fixed;top:0;background-color: #3400CE;">
+    <nav-header title="云赛空间" showBack="{{false}}" />
+  </view>
+
+  <view style="width:100%;margin-top:{{marginHeight}}rpx;display:flex;flex-direction:column;align-items: center;">
+    <image src="/images/mine/name.png" class="img" />
+    <text class="tips">您还不是入孵人员，无法预约会议室</text>
+    <view class="tipsdetail">
+      <text>请至云赛空间服务号或者官网申请入孵，</text>
+      <text>申请通过便可预约会议室</text>
+    </view>
+
+    <navigator open-type="exit" target="miniProgram" class="text"> 退出</navigator>
+  </view>
+</view>

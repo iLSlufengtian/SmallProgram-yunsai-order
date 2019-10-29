@@ -1,0 +1,39 @@
+<view class="container">
+  <image src="../../images/qrcode/logo.png" class="logo" />
+  <view class="qrcode-box0" wx:if="{{invalid == 1}}">
+    <view class="password">
+      <text style='font-size:30rpx;color:#3E3E3E;font-weight:500'>密码</text>
+      <text style='font-size:60rpx;color:#3400CE;margin-top:10rpx;font-weight:500'>{{result?result.password:''}}</text>
+    </view>
+    <view class="detail">
+      <text style="font-size:30rpx;color:#3E3E3E;margin-bottom:26rpx;margin-top:26rpx;font-weight:500">扫码开门</text>
+      <image src="{{result?(result.qrUrl?result.qrUrl:'../../images/qrcode/code.png'):'../../images/qrcode/code.png'}}" class="qr" mode="aspectFill" />
+    </view>
+
+    <view class="valid">
+      <text style="font-size:28rpx;color:white;font-weight:500">有效时间: {{result?(result.startTime+'~'+result.endTime):''}}</text>
+    </view>
+    <view class="decription">
+      <view style="width:223rpx;height:1rpx; border-bottom: 1rpx solid #B0B0B0;" />
+      <text style='font-size:24rpx;color:#3E3E3E;  margin-right: 18rpx;margin-left: 18rpx;font-weight:500'>使用说明</text>
+      <view style="width:223rpx;height:1rpx; border-bottom: 1rpx solid #B0B0B0;" />
+    </view>
+    <text style='font-size:24rpx;color:#8E8E8E;'>会议室开门密码将于会议开始前十分钟生效</text>
+  </view>
+
+  <view class="qrcode-box0" wx:if="{{invalid == 2}}">
+    <text style="font-size:30rpx;color:#3400CE;margin-bottom:177rpx;margin-top:95rpx;font-weight:500">很抱歉，该二维码已失效</text>
+    <image src="../../images/qrcode/expire.png" class="qr-invalid" mode="aspectFit" />
+    <view class="decription">
+      <view style="width:223rpx;height:1rpx; border-bottom: 1rpx solid #B0B0B0;" />
+      <text style='font-size:24rpx;color:#3E3E3E;  margin-right: 18rpx;margin-left: 18rpx;font-weight:500'>失效原因</text>
+      <view style="width:223rpx;height:1rpx; border-bottom: 1rpx solid #B0B0B0;" />
+    </view>
+     <text style='font-size:24rpx;color:#8E8E8E;margin-top:8rpx'>当前时间已超过会议结束时间</text>
+  </view>
+
+  <view class="qrcode-box0" wx:if="{{showCancel}}">
+    <text style="font-size:30rpx;color:#3400CE;margin-bottom:177rpx;margin-top:95rpx;font-weight:500">该预约已被取消</text>
+    <image src="../../images/qrcode/cancel.png" class="qr-invalid" mode="aspectFit" />
+  </view>
+</view>

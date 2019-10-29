@@ -1,0 +1,38 @@
+page {
+  min-height: 100%;
+  background-color: #FFFFFF;
+}
+
+.container {
+  display: flex;
+}
+
+.logo-container {
+  width:80%;
+  margin-top: 155rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1rpx solid #8E8E8E;
+}
+
+.img-head {
+  width:454rpx;
+  height: 74rpx;
+  margin-bottom: 96rpx;
+}
+
+.about-us {
+  width:80%;
+  background-color: #FFFFFF;
+  color: #3E3E3E;
+  font-size:28rpx;
+  padding-top:136rpx;
+  padding-bottom: 148rpx; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  border-bottom: 1rpx solid #8E8E8E;
+  margin-bottom:156rpx;
+}

@@ -1,0 +1,37 @@
+.container {
+  display: flex;
+}
+
+.img {
+  width: 217rpx;
+  height: 201rpx;
+  margin-top: 150rpx;
+}
+
+.tips {
+  font-size: 30rpx;
+  color: #3e3e3e;
+  margin-top: 120rpx;
+}
+
+.tipsdetail {
+  width: 442rpx;
+  height: 64rpx;
+  color: #8e8e8e;
+  font-size: 24rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 30rpx;
+}
+.text {
+  height: 80rpx;
+  width: 90%;
+  margin-top: 130rpx;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 80rpx;
+   background-color: #3400ce;
+  color: white;
+}

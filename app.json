@@ -1,0 +1,27 @@
+{
+  "pages": [
+    "pages/authorization/index",
+    "pages/login/login",
+    "pages/index",
+    "pages/login/findPwd/index",
+    "pages/mine/setpwd/index",
+    "pages/order/index",
+    "pages/home/filter/index",
+    "pages/qrCode/index",
+    "pages/audit/index",
+    "pages/mine/aboutus/index",
+    "pages/mine/record/index",
+    "pages/guide/index"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#343941",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "",
+    "backgroundTextStyle": "light",
+    "navigationStyle": "custom"
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx58dd4e724d5366af"
+  ],
+  "sitemapLocation": "sitemap.json"
+}

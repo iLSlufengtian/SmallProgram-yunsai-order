@@ -1,0 +1,18 @@
+<view>
+  <view class='com-sContent' bindtap='selectToggle' style="width:{{sWidth?sWidth:460}}rpx;height:{{sHeight?sHeight:72}}rpx;border:1rpx solid {{borderColor}}" >
+    <view class='com-sTxt' style="color:{{textColor}}">{{nowText}}</view>
+    <image src="../../images/common/down.png" class='com-sImg' animation="{{animationData}}"></image>
+  </view>
+  <view class='com-sList' wx:if="{{selectShow}}" style="width:{{sWidth?sWidth:460}}rpx;">
+    <block wx:for="{{propArray}}" wx:key="" wx:for-index="index" data-item="item">
+      <view class="sList-left" >
+        <view  data-index="{{index}}" class='com-sItem' bindtap='setText' style="color:{{textColor}}">{{item.text}}</view>
+        <image wx:if="{{multiple && item.checked}}" src="../../images/common/duihao.png" class='add-img' style="margin-right: 20rpx;"></image>
+      </view>
+      <!-- <view wx:if="{{(propArray.length-1)==index}}" class='com-wang' bindtap='setText'>
+        <image src="../../images/common/down.png" class='add-img'></image>
+        <text style="font-size:24rpx;color:red;">任务类型：牙科诊所</text>
+      </view> -->
+    </block>
+  </view>
+</view>

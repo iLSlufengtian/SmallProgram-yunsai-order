@@ -1,0 +1,47 @@
+<view class="container">
+  <view style="width:100%;position:fixed;top:0;background-color: #3400CE;">
+    <nav-header title="导出记录" showBack="{{true}}" />
+  </view>
+
+  <view style="width:100%;margin-top:196rpx;display:flex;flex-direction:column;">
+      <view class="items">
+        <image src="/images/mine/email.png" class="img-left"/>
+        <text class="text-view">邮箱</text>
+      </view>
+      <input class="input-email"  placeholder-class="holder-input" placeholder="请输入邮箱" type="email" 
+        bindinput="bindEmailInput" value="{{email}}" />
+      <view class="rem">
+        <text class="star">*</text>
+        <text class="remind">我们将会把预约记录发至此邮箱</text>
+      </view>
+  </view>
+
+  <view style="width:100%;margin-top:28rpx;display:flex;flex-direction:column;">
+      <view class="items">
+        <image src="/images/mine/startTime.png" class="img-left"/>
+        <text class="text-view">开始时间</text>
+      </view>
+
+      <picker mode="date" value="{{startData}}" bindchange="bindStartDateChange">
+        <view class="sTime">{{startData}}</view>
+      </picker>
+  </view>
+
+  <view style="width:100%;margin-top:56rpx;display:flex;flex-direction:column;">
+      <view class="items">
+        <image src="/images/mine/endTime.png" class="img-left"/>
+        <text class="text-view">结束时间</text>
+      </view>
+
+        <picker mode="date" value="{{endData}}" bindchange="bindEndDateChange">
+        <view class="sTime">{{endData}}</view>
+      </picker>
+  </view>
+
+  <view class="apply" bindtap="apply">
+    <image src="/images/mine/apply.png" class="img-apply"/>
+  </view>
+</view>
+
+
+<!-- <input class="input-phone" placeholder-class="holder-input" placeholder="请输入手机号" type="number" bindinput="bindPhoneInput" value='{{phone}}' maxlength='11'/> -->
